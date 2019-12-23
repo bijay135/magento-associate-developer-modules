@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Exam\Database\Api\Data\AffiliateMemberInterface"
+                type="Exam\Database\Model\AffiliateMember"/>
+    <preference for="Exam\Database\Api\AffiliateMemberRepositoryInterface"
+                type="Exam\Database\Model\AffiliateMemberRepository"/>
+    <preference for="Exam\Database\Api\Data\AffiliateMemberSearchResultInterface"
+                type="Magento\Framework\Api\SearchResults"/>
+</config>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--
+    <preference for="Magento\Catalog\Api\ProductRepositoryInterface"
+                type="Exam\FirstModule\Model\CustomImplementation"/>
+
+    <preference for="Exam\FirstModule\NotMagento\PencilInterface"
+                type="Exam\FirstModule\NotMagento\BigPencil"/>
+                type="Exam\FirstModule\NotMagento\RedPencil"/>
+                type="Exam\FirstModule\NotMagento\YellowPencil"/>
+    -->
+
+    <preference for="Exam\FirstModule\Api\PencilInterface"
+                type="Exam\FirstModule\Model\Pencil"/>
+    <preference for="Exam\FirstModule\Api\Color"
+                type="Exam\FirstModule\Model\Yellow"/>
+    <preference for="Exam\FirstModule\Api\Size"
+                type="Exam\FirstModule\Model\Normal"/>
+    <preference for="Exam\FirstModule\Api\Brightness"
+                type="Exam\FirstModule\Model\Medium"/>
+
+    <virtualType name="virtualType" type="Exam\FirstModule\Model\Yellow">
+        <arguments>
+            <argument name="brightness" xsi:type="object">Exam\FirstModule\Model\High</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Exam\FirstModule\Model\Pencil">
+        <arguments>
+            <argument name="color" xsi:type="object">virtualType</argument>
+            <!-- <argument name="color" xsi:type="object">Exam\FirstModule\Model\Red</argument> -->
+            <argument name="size" xsi:type="object">Exam\FirstModule\Model\Big</argument>
+        </arguments>
+    </type>
+
+    <type name="Exam\FirstModule\Model\Student">
+        <arguments>
+            <argument name="name" xsi:type="string">Bob</argument>
+            <argument name="age" xsi:type="number">35</argument>
+            <argument name="scores" xsi:type="array">
+                <item name="maths" xsi:type="number">100</item>
+                <item name="programming" xsi:type="number">99</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Exam\FirstModule\Controller\Page\HelloWorld">
+        <plugin name="execute_plugin"
+            type="Exam\FirstModule\Plugin\PluginSolution"
+            sortOrder="10"
+            disabled="true"/>
+        <plugin name="execute_plugin2"
+                type="Exam\FirstModule\Plugin\PluginSolution2"
+                sortOrder="20"
+                disabled="true"/>
+        <plugin name="execute_plugin3"
+                type="Exam\FirstModule\Plugin\PluginSolution3"
+                sortOrder="30"
+                disabled="true"/>
+        <arguments>
+            <argument name="heavyService" xsi:type="object">Exam\FirstModule\Model\HeavyService\Proxy</argument>
+        </arguments>
+    </type>
+
+    <!--
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="product_plugin"
+                type="Exam\FirstModule\Plugin\PluginSolution"
+                sortOrder="10"
+                disabled="true"/>
+    </type>
+    -->
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="hello_world" xsi:type="object">Exam\FirstModule\Console\Command\HelloWorld</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

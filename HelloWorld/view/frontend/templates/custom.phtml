@@ -1,0 +1,14 @@
+<?php
+/** @var  \Exam\HelloWorld\ViewModel\HelloView $viewModel */
+$viewModel = $block->getData('view_model');
+$hello = $viewModel->getHelloWorld();
+$helloArray = $viewModel->helloArray();
+?>
+
+<h2><?php echo $viewModel->getProductName() ?></h2>
+<h1><?php echo $hello; ?></h1>
+<?php foreach ($helloArray as $helloWorld): ?>
+<ul>
+    <li><?php echo $helloWorld; ?></li>
+</ul>
+<?php endforeach; ?>
