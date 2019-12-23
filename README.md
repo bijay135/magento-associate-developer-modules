@@ -37,7 +37,7 @@
 - View Model
 
 ### 6. Customizing Admin
-- ACL
+- Access Control List
 - System Configuration & Default Values
 - Custom Admin Menu
 - Admin Grid Listing
