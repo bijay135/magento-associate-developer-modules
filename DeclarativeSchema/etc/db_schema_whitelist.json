@@ -1,0 +1,31 @@
+{
+    "custom_declarative_schema": {
+        "column": {
+            "id": true,
+            "name": true,
+            "updated_date": true,
+            "email": true
+        },
+        "index": {
+            "CUSTOM_DECLARATIVE_SCHEMA_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "exam_declarative_schema": {
+        "column": {
+            "id": true,
+            "name": true,
+            "updated_date": true,
+            "email": true,
+            "email_renamed": true
+        },
+        "index": {
+            "EXAM_DECLARATIVE_SCHEMA_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

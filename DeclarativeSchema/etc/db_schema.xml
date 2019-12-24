@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="exam_declarative_schema" resource="default" engine="innodb" comment="Exam Module Table"
+           onCreate="migrateDataFromAnotherTable(custom_declarative_schema)">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" comment="Name"/>
+        <column xsi:type="datetime" name="updated_date" on_update="false" nullable="true" comment="Updated Date"/>
+        <column xsi:type="varchar" name="email" nullable="false" comment="Email" onCreate="migrateDataFrom(email_renamed)"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="INDEX_REFERENCE" indexType="btree">
+            <column name="id"/>
+        </index>
+    </table>
+</schema>

@@ -25,6 +25,7 @@
 - Collections
 - API (GET, POST, PUT, Delete)
 - Search Criteria
+- Declarative Schema(table, whitelist, patch)
 
 ### 4. EAV & Extension Attributes
 - Product Attributes
